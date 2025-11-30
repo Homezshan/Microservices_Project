@@ -16,7 +16,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE: ghcr.io/${{ github.repository_owner }}/api-gateway:latest
+     IMAGE: ghcr.io/homezshan/api-gateway:latest
+
 
     steps:
       - name: Checkout

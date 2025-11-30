@@ -16,7 +16,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE: ghcr.io/${{ github.repository_owner }}/order-service:latest
+     IMAGE: ghcr.io/homezshan/order-service:latest
+
 
     steps:
       - uses: actions/checkout@v4
