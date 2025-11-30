@@ -15,9 +15,9 @@ A fully scalable **Microservices Architecture** built using modern backend + Dev
          ┌────────────────────┼────────────────────┐
          │                    │                    │
  ┌──────────────┐    ┌──────────────┐     ┌────────────────┐
- │ User Service │    │ Order Service│     │ Payment Service │
- │  (Flask)     │    │   (Flask)    │     │     (Flask)     │
- │ PostgreSQL   │    │  MongoDB     │     │     Redis        │
+ │ User Service │    │ Order Service│     │ Payment Service│
+ │  (Flask)     │    │   (Flask)    │     │     (Flask)    │
+ │ PostgreSQL   │    │  MongoDB     │     │     Redis      │
  └──────────────┘    └──────────────┘     └────────────────┘
 ```
 
