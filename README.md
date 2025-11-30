@@ -1,7 +1,6 @@
 # 🚀 Microservices Project — Production-Grade Architecture (Docker, Kubernetes, CI/CD)
 
 A fully scalable **Microservices Architecture** built using modern backend + DevOps technology.  
-Designed for real-world systems and perfect for high-package interviews 
 
 ---
 
