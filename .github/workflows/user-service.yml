@@ -1,0 +1,51 @@
+name: CI - user-service
+
+on:
+  push:
+    paths:
+      - "user-service/**"
+      - ".github/workflows/user-service.yml"
+    branches: [ main ]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    env:
+      IMAGE: ghcr.io/${{ github.repository_owner }}/user-service:latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.GHCR_USERNAME }}
+          password: ${{ secrets.GHCR_TOKEN }}
+
+      - name: Build & Push Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./user-service
+          push: true
+          tags: ${{ env.IMAGE }}
+
+      # Optional Deploy Step (enable later)
+      - name: Deploy to Kubernetes (optional)
+        if: ${{ secrets.KUBE_CONFIG != '' }}
+        env:
+          KUBECONFIG_DATA: ${{ secrets.KUBE_CONFIG }}
+        run: |
+          echo "$KUBECONFIG_DATA" | base64 --decode > kubeconfig
+          export KUBECONFIG=$PWD/kubeconfig
+          kubectl set image deployment/user-service user-service=${{ env.IMAGE }}
+          kubectl rollout status deployment/user-service --timeout=120s
