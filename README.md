@@ -65,7 +65,7 @@ Endpoints:
 ```
 POST /users/register
 POST /users/login
-GET  /users/profile    <-- NEW ENDPOINT
+GET  /users/profile 
 ```
 
 Database: **PostgreSQL**
