@@ -243,5 +243,8 @@ Microservices_Project/
 
 ---
 
+Most Challenging Problem faced during project :
+One of the most challenging problems I solved recently was fixing my Docker-based microservices setup in my Microservices_Project repo. MongoDB and Redis containers were not connecting properly, and some services kept failing because I was using the wrong hostnames and ports inside Docker. I also struggled with containers starting in the wrong order, causing random connection errors. After debugging logs and adjusting environment variables, networks, and health checks, I finally got all services to communicate reliably. This issue taught me a lot about Docker networking and service dependencies.
+
 
 
