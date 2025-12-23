@@ -20,7 +20,7 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
-@app.route("/users/register", methods=["POST"])
+@app.route("/register", methods=["POST"])
 def register():
     data = request.json or {}
     username = data.get("username")
@@ -36,7 +36,7 @@ def register():
     db.session.commit()
     return jsonify({"message": "user created", "user_id": user.id}), 201
 
-@app.route("/users/login", methods=["POST"])
+@app.route("/login", methods=["POST"])
 def login():
     data = request.json or {}
     username = data.get("username")
@@ -64,7 +64,7 @@ def get_token_from_header():
     parts = auth.split()
     return parts[-1]
 
-@app.route("/users/profile", methods=["GET"])
+@app.route("/profile", methods=["GET"])
 def profile():
     token = get_token_from_header()
     if not token:

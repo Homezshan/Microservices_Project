@@ -25,7 +25,7 @@ def verify_jwt(token):
     except:
         return None, None
 
-@app.route("/payments/pay", methods=["POST"])
+@app.route("/pay", methods=["POST"])
 def make_payment():
     token = get_token()
     user_id, username = verify_jwt(token)
@@ -48,7 +48,7 @@ def make_payment():
         "user": username
     })
 
-@app.route("/payments/pay/status/<txn_id>", methods=["GET"])
+@app.route("/pay/status/<txn_id>", methods=["GET"])
 def get_status(txn_id):
     status = r.get(txn_id)
     if not status:

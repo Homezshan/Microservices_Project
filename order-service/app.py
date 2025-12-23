@@ -48,7 +48,7 @@ def create_order():
     result = orders_col.insert_one(order)
     return jsonify({"message": "order created", "order_id": str(result.inserted_id)})
 
-@app.route("/orders", methods=["GET"])
+@app.route("/check", methods=["GET"])
 def get_orders():
     token = get_token()
     user_id, username = verify_jwt(token)
