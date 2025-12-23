@@ -26,7 +26,7 @@ def verify_jwt(token):
     except:
         return None, None
 
-@app.route("/orders/create", methods=["POST"])
+@app.route("/create", methods=["POST"])
 def create_order():
     token = get_token()
     user_id, username = verify_jwt(token)
